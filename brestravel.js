@@ -1,7 +1,8 @@
 var bresBOT = {
   //https://en.wikipedia.org/wiki/Bresenham's_line_algorithm
   //adapted by slippy/hentai for usage on https://thetravelers.online/
-  //this is a testing version, do not use
+  //only runs a singular bot
+  //feel free to use this, please don't remove these credits
   err: undefined,
   dx: undefined,
   dy: undefined,
@@ -28,15 +29,9 @@ var bresBOT = {
       this.pgy = gy;
       this.count = 0;
     }
-    while ( (cx !== gx) && (cy !== gy) ) {
     var cycdata = this.cycle(cx, cy, this.sx, this.sy, this.dx, this.dy, this.err);
     this.err = cycdata[1];
-    //return cycdata[0];
-    cx = cycdata[2];
-    cy = cycdata[3];
-    console.log(cycdata[0]);
-    console.log("x: ", cx, " y: ", cy);//plot line
-    }
+    return cycdata[0];
   },
   reset: function () {
     this.err = undefined;
@@ -61,12 +56,12 @@ var bresBOT = {
     var e2 = 2*err;
     if (e2 >= dy) {
       err+= dy;
-      cx += sx;
+      //cx += sx;
       sx > 0 ? x="e" : x="w";
     }
     if (e2 <= dx) {
       err += dx;
-      cy += sy;
+      //cy += sy;
       sy > 0 ? y="n" : y="s";
     }
     if (!y) {
@@ -76,7 +71,6 @@ var bresBOT = {
     } else {
       yx = y + x;
     }
-    return [yx, err, cx, cy];
-    ///
+    return [yx, err];
   }
-}
+};
