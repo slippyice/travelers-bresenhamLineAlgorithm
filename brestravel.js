@@ -1,8 +1,7 @@
 var bresBOT = {
   //https://en.wikipedia.org/wiki/Bresenham's_line_algorithm
-  //adapted by slippy/hentai for usage on https://thetravelers.online/
-  //only runs a singular bot
-  //feel free to use/modify this, please don't remove these credits
+  //adapted for usage on https://thetravelers.online/
+  //only runs with a singular bot
   err: undefined,
   dx: undefined,
   dy: undefined,
